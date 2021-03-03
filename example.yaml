@@ -1,0 +1,27 @@
+#version de l'api pour la creation du deploiement.
+apiVersion: apps/v1 
+
+#type de la ressource qui va être crée.
+kind: Deployment 
+
+
+metadata:
+  name: nginx-deployment #nom du deploiement qui va être crée.
+
+
+
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
