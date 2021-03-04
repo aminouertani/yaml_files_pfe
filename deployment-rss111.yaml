@@ -1,0 +1,34 @@
+apiVersion : apps/v1
+
+kind : Deployment
+
+metadata :
+  name : deploy-rss
+  labels :
+    app : web 
+    tier : testing
+
+
+
+spec :
+  replicas : 4 #
+
+  selector : #
+    matchLabels :
+      app : web
+      tier : testing
+
+  template :
+    metadata :
+      labels :
+        app : web  #
+    spec :
+      containers :
+      - image : nickchase/rss-php-nginx:v1
+        name : rss-reader
+        ports : 
+        - containerPort : 88
+      - name : front-end 
+        image : nginx
+        ports :
+        - containerPort : 80 
