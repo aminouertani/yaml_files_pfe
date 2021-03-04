@@ -10,7 +10,7 @@ metadata :
 spec :
   replicas : 4
   selector :
-  matchLabel :
+  matchLabels :
     app : web
     tier : testing
   template :
