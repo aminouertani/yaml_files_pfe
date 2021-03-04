@@ -1,0 +1,9 @@
+apiVersion : v1 # version used for namespaces/services/nodes/pods
+kind : namespaces # object to create is a service
+
+metadata : # naming/labels description of the object
+  name : deployment-demo
+  labels :
+    app : web-based #check if it is app or apps !!!
+  annotations :
+    type : demo
